@@ -181,12 +181,12 @@
 
     {## Enable Connect on Server ##}
     "connect": {
-        "enabled": {% consul_connect_enabled | bool %}
+        "enabled": {{ consul_connect_enabled | bool }}
     },
 
     {## Enable Peering on Server ##}
     "peering": {
-        "enabled": {% consul_peering_enabled | bool %}
+        "enabled": {{ onsul_peering_enabled | bool }}
     },
 
     {# Client Settings #}

@@ -180,11 +180,14 @@
     "server": {{ (config_item.config_version != 'client') | bool | to_json }},
 
     {## Enable Connect on Server ##}
-    {% if consul_connect_enabled | bool %}
     "connect": {
-        "enabled": true
+        "enabled": {% consul_connect_enabled | bool %}
     },
-    {% endif %}
+
+    {## Enable Peering on Server ##}
+    "peering": {
+        "enabled": {% consul_peering_enabled | bool %}
+    },
 
     {# Client Settings #}
     {% if (config_item.config_version == 'client') %}
